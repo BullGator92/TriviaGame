@@ -34,7 +34,7 @@ var game = {
            question: "Who is the lead singer of The Rolling Stones?",
            possibles: ["Randy McMichael", "Ted Nugent", "Mick Jagger"],
            id: 'question-one',
-           answer: 1
+           answer: 2
     }, {
         question: "Who was the lead singer of Led Zeppelin?",
         possibles: ["Robert Plant", "Peter Gabriel", "Artemis Pyle"],
@@ -56,7 +56,7 @@ var game = {
 
 // These events start the timer: set the number of seconds the guesser has 
 var number = 60;
-$("#timer").on("click", run);
+// $("#timer").on("click", run);
 
 // This function enables the number of seconds to decrease with time, and to display
 // the result of that decrease until time is up. 
@@ -75,7 +75,14 @@ function decrement(){
     $("#messageDiv").html("Time/'s up!");
     checkAnswers();
     }
+};
+decrement()
+
+function myFunction() {
+    var x = $(".radio-inline").value;
+    console.log(value);
 }
+$(".radio-inline").on("click", myFunction)
 
 //Pseudocode of things that need to be added
 //display the questions on the page
@@ -86,3 +93,4 @@ function decrement(){
 // create counter for # of unanswered questions
 // create functionality for "done" button (stops countdown timer, populates the answer counters)
 
+})
