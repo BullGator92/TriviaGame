@@ -8,24 +8,24 @@ $("#startButton").on("click", function () {
 });
 
 // create a countdown timer
-// var timeInSecs;
-// var ticker;
+var timeInSecs;
+var ticker;
 
-// function startTimer(secs) {
-//     timeInSecs = parseInt(secs) - 1;
-//     ticker = setInterval("tick()", 1000);
-// }
+function startTimer(secs) {
+    timeInSecs = parseInt(secs) - 1;
+    ticker = setInterval(tick, 1000);
+}
 
-// function tick() {
-//     var secs = timeInSecs;
-//     if (secs > 0) {
-//         timeInSecs--;
-//     } else {
-//         clearInterval(ticker);
-//     }
-//     document.getElementById("timer").innerHTML = secs;
-// }
-// startTimer(60);  // 60 seconds 
+function tick() {
+    var secs = timeInSecs;
+    if (secs > 0) {
+        timeInSecs--;
+    } else {
+        clearInterval(ticker);
+    }
+    document.getElementById("timer").innerHTML = secs;
+}
+startTimer(60);  // 60 seconds 
 
 // question array
 var game = {
@@ -79,8 +79,8 @@ function decrement(){
 decrement()
 
 function myFunction() {
-    var x = $(".radio-inline").value;
-    console.log(value);
+    var x = $(".radio-inline").val()
+    console.log(x);
 }
 $(".radio-inline").on("click", myFunction)
 
