@@ -148,11 +148,12 @@ $(document).ready(function () {
     }
 
     // function that 
-    function isCorrect(questions) {
-        var answers = $('[name=' + questions.id + ']');
-        var correct = answers.eq(questions.answer);
-        var isChecked = correct.is(':checked');
-        return isChecked;
+    function isCorrect(questions) {//take in a single question object
+        //
+        var answers = $('[name=' + questions.id + ']');//getting all elements in html DOM w/ a name property/attribute that is equal to the question.id
+        var correct = answers.eq(questions.answer);//narrowing list down to single element equal to the single answer
+        var isChecked = correct.is(':checked');//checking if that single element is checked
+        return isChecked;//returns isChecked
     }
 
     // call the buildQuestions function
@@ -173,7 +174,7 @@ $(document).ready(function () {
         var guessedAnswers = [];
         var correct = 0;
         var incorrect = 0;
-        var unAnswered = 0
+        var unAnswered = 0;
 
         // for loop iterates through each question and passes the questions at each index first into
         // the isCorrect function to see if they match the indices of correct answers, and if they do,
@@ -203,13 +204,15 @@ $(document).ready(function () {
     function checkAnswered(questions) {
         var anyAnswered = false;
         var answers = $('[name=' + questions.id + ']');
+        console.log(questions.id);
+        console.log(answers);
         // the for loop creates a condition to check if the buttons were checked and and then sets
         // the anyAnswered variable to true if they were
         for (var i = 0; i < answers.length; i++) {
             if (answers[i].checked) {
                 anyAnswered = true;
             }
-        }
+        } console.log("it worked");
         // then return the anyAnswered variable so it can be tabulated in the last function to distinguish
         // between incorrect answers and those answers that were not attempted
         return anyAnswered;
